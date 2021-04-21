@@ -11,5 +11,6 @@ RNAseq Demo
 # The diff_expression.R script produces output for analysis of differential expression. 
 
 # TODO
+# Create the following directories in the rnaseq_demo directory: sequences, genome, results, counts, alignment_results.
 # The user will have to manually download the sequences listed in the sequences.txt file into the sequences directory.
 # Once this is done, the user should be able to execute the rnaseq.sh script and diff_expression.R script without an issue. 
