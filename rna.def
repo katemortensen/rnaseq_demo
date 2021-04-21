@@ -1,0 +1,29 @@
+bootstrap: docker
+From: continuumio/miniconda3
+
+%post
+
+## Add conda to path.
+
+export PATH=/opt/conda/bin:$PATH
+
+## Update conda.
+
+conda update -n base -y -c defaults conda
+
+##Install required software.
+
+conda create -n rnaseq -y -c conda-forge -c bioconda \
+r-tidyverse r-devtools bioconductor-edger bioconductor-deseq2 \
+fastqc star subread samtools sra-tools
+
+## Update environment.
+
+conda update -n rnaseq -y -c conda-forge -c bioconda --all
+
+## Clean up extra files.
+
+conda clean -y --all
+
+%environment 
+export PATH=/opt/conda/envs/rnaseq/bin:$PATH
